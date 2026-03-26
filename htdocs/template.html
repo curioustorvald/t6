@@ -12,11 +12,14 @@
     <link rel="stylesheet" type="text/css" href="fontawesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://hangeul.pstatic.net/hangeul_static/css/maru-buri.css">
     <title>Torvald's Tech Tales</title>
+    <!-- Apply saved theme immediately to avoid flash of wrong colour scheme -->
+    <script>(function(){var t=localStorage.getItem('theme');if(t==='dark')document.documentElement.classList.add('inverted');else if(t==='light')document.documentElement.classList.add('light')})();</script>
 </head>
 <body>
     <header>
         <siteheader><h1 class="site_header">Torvald’s Tech&nbsp;Tales</h1></siteheader>
         <panelnavwrapper>(navigation panel)</panelnavwrapper>
+        <button id="theme-toggle" aria-label="Toggle colour theme" title="Toggle colour theme">🌙</button>
     </header>
     <contents>
 
@@ -38,6 +41,21 @@
     <footer>
         <p>Copyright © 2022&ndash; CuriousTorvald</p>
     </footer>
+    <script>
+(function(){
+    var h=document.documentElement,btn=document.getElementById('theme-toggle');
+    var mq=matchMedia('(prefers-color-scheme: dark)');
+    function isDark(){return h.classList.contains('inverted')||((!h.classList.contains('light'))&&mq.matches);}
+    function update(){btn.textContent=isDark()?'\u2600':'\uD83C\uDF19';}
+    btn.addEventListener('click',function(){
+        if(isDark()){h.classList.remove('inverted');h.classList.add('light');localStorage.setItem('theme','light');}
+        else{h.classList.add('inverted');h.classList.remove('light');localStorage.setItem('theme','dark');}
+        update();
+    });
+    mq.addEventListener('change',update);
+    update();
+})();
+    </script>
 </body>
 </html>
 

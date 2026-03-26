@@ -70,3 +70,19 @@ li.columngap > a {
     transition: all 100ms;
     border-bottom: 1px solid #111113;
 }
+
+html.inverted .sub_content {
+    scrollbar-color: #48484a #1c1c1e;
+}
+html.inverted .sub_content::-webkit-scrollbar-thumb { background-color: #48484a; }
+html.inverted .sub_content::-webkit-scrollbar-track { background-color: #1c1c1e; }
+html.inverted .sub_link:hover { border-bottom-color: #d4d4d4; }
+
+@media (prefers-color-scheme: dark) {
+    html:not(.light) .sub_content {
+        scrollbar-color: #48484a #1c1c1e;
+    }
+    html:not(.light) .sub_content::-webkit-scrollbar-thumb { background-color: #48484a; }
+    html:not(.light) .sub_content::-webkit-scrollbar-track { background-color: #1c1c1e; }
+    html:not(.light) .sub_link:hover { border-bottom-color: #d4d4d4; }
+}

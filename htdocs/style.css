@@ -65,7 +65,7 @@ html.contrast span.mfw {
  color:#4d0000
 }
 html.inverted {
- background-color:#010101
+ background-color:#1c1c1e
 }
 html.inverted body {
  color:#bababa
@@ -211,6 +211,20 @@ blockquote:after {
  display:block;
  clear:both
 }
+blockquote.framed {
+ background: #f6f6f7;
+ border: 1px solid #99999b;
+ border-radius: 3px;
+ padding: 2em 1.5em 0.5em 1.5em;
+ color: unset;
+ margin: 2em 0;
+}
+html.inverted blockquote.framed {
+ scrollbar-color: #48484a #2c2c2e;
+ background: #2c2c2e;
+ border: 1px solid #48484a;
+ color: unset;
+}
 @media screen and (max-width:500px) {
  div.fancyPositioning div.picture-left,
  div.fancyPositioning div.tleft {
@@ -235,4 +249,21 @@ span.visited {
 }
 span.visited-maroon {
  color:#85144b
+}
+
+/* ── Dark mode ─────────────────────────────────────────────────────────────
+   Two ways dark mode activates:
+     (a) html.inverted class — set by the manual toggle, saved in localStorage
+     (b) @media prefers-color-scheme: dark — automatic, unless html.light is set
+         (html.light is added by the toggle to force light when system is dark)
+   ──────────────────────────────────────────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+ html:not(.light) { background-color:#1c1c1e }
+ html:not(.light) body { color:#bababa }
+ html:not(.light) blockquote { color:#dad0c7 }
+ html:not(.light) blockquote:before { color:#bfbfbf }
+ html:not(.light) a { color:#07a }
+ html:not(.light) a:visited { color:#ac5a82 }
+ html:not(.light) span.wr { color:#c0392b }
+ html:not(.light) span.mfw { color:#8a0000 }
 }
