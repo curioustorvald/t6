@@ -319,7 +319,7 @@ math {
 
 #theme-toggle {
     position: absolute;
-    top: 1em;
+    top: 0.6em;
     right: 0;
     background: none;
     border: 1px solid #c0c0c2;
