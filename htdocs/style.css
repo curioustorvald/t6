@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css?family=PT+Sans:400,700|PT+Sans+Caption:400,700|Noto+Sans+Symbols+2|PT+Sans+Narrow:400:700|PT+Mono:400|PT+Serif:400,700");
+
+
+html {
+ background-color:#FDFDFD;
+}
+body {
+ font-family:'PT Serif';
+ color:#1F2124;
+ font-size:16.5px;
+ margin:2em auto;
+ max-width:800px;
+ padding:1em;
+ line-height:1.550;
+ text-align:justify;
+ hyphens: auto;
+}
+h1 {
+    font-family: 'PT Sans';
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+h2 {
+    font-family: 'PT Sans';
+    font-weight: 700;
+    font-size: 1.6rem;
+}
+h3 {
+    font-family: 'PT Sans';
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+h4 {
+    font-family: 'PT Sans';
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+h5 {
+    font-family: 'PT Sans';
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+strong {
+    font-weight: 700;
+}
+html.contrast body {
+ color:#050505
+}
+html.contrast blockquote {
+ color:#11151a
+}
+html.contrast blockquote:before {
+ color:#262626
+}
+html.contrast a {
+ color:#0051c9
+}
+html.contrast a:visited {
+ color:#7d013e
+}
+html.contrast span.wr {
+ color:#800
+}
+html.contrast span.mfw {
+ color:#4d0000
+}
+html.inverted {
+ background-color:#010101
+}
+html.inverted body {
+ color:#bababa
+}
+html.inverted div#contrast,
+html.inverted div#invmode {
+ color:#fff;
+ background-color:#000
+}
+html.inverted blockquote {
+ color:#dad0c7
+}
+html.inverted blockquote:before {
+ color:#bfbfbf
+}
+html.inverted a {
+ color:#07a
+}
+html.inverted a:visited {
+ color:#ac5a82
+}
+html.inverted span.wr {
+ color:#c0392b
+}
+html.inverted span.mfw {
+ color:#8a0000
+}
+html.inverted.contrast {
+ background-color:#010101
+}
+html.inverted.contrast body {
+ color:#fff
+}
+html.inverted.contrast div#contrast,
+html.inverted.contrast div#invmode {
+ color:#fff;
+ background-color:#000
+}
+html.inverted.contrast blockquote {
+ color:#f8f6f5
+}
+html.inverted.contrast blockquote:before {
+ color:#e5e5e5
+}
+html.inverted.contrast a {
+ color:#07a
+}
+html.inverted.contrast a:visited {
+ color:#ac5a82
+}
+html.inverted.contrast span.wr {
+ color:#c0392b
+}
+html.inverted.contrast span.mfw {
+ color:#a10000
+}
+a {
+ color:#07a
+}
+a:visited {
+ color:#941352
+}
+.noselect {
+ -webkit-touch-callout:none;
+ -webkit-user-select:none;
+ -moz-user-select:none;
+ -ms-user-select:none;
+ user-select:none
+}
+span.citneed {
+ vertical-align:top;
+ font-size:.7em;
+ padding-left:.3em
+}
+small {
+ font-size:.4em
+}
+p.st {
+ margin-top:-1em
+}
+div.fancyPositioning div.picture-left {
+ float:left;
+ width:40%;
+ overflow:hidden;
+ margin-right:1em
+}
+div.fancyPositioning div.picture-left img {
+ width:100%
+}
+div.fancyPositioning div.picture-left p.caption {
+ font-size:.7em
+}
+div.fancyPositioning div.tleft {
+ float:left;
+ width:55%
+}
+div.fancyPositioning div.tleft p:first-child {
+ margin-top:0
+}
+div.fancyPositioning:after {
+ display:block;
+ content:"";
+ clear:both
+}
+ul li img {
+ height:1em
+}
+blockquote {
+ color:#456;
+ margin-left:0;
+ margin-top:2em;
+ margin-bottom:2em
+}
+blockquote span {
+ float:left;
+ margin-left:1rem;
+ padding-top:1rem
+}
+blockquote author {
+ display:block;
+ clear:both;
+ font-size:.6em;
+ margin-left:2.4rem;
+ font-style:oblique
+}
+blockquote author:before {
+ content:"- ";
+ margin-right:1em
+}
+blockquote:before {
+ font-family:Times New Roman,Times,Arial;
+ color:#666;
+ content:open-quote;
+ font-size:2.2em;
+ font-weight:700;
+ float:left;
+ margin-top:0;
+ margin-right:.2rem;
+ width:1.2rem
+}
+blockquote:after {
+ content:"";
+ display:block;
+ clear:both
+}
+@media screen and (max-width:500px) {
+ div.fancyPositioning div.picture-left,
+ div.fancyPositioning div.tleft {
+  float:none;
+  width:inherit
+ }
+ blockquote span {
+  width:80%
+ }
+ blockquote author {
+  padding-top:1em;
+  width:80%;
+  margin-left:15%
+ }
+ blockquote author:before {
+  content:"";
+  margin-right:inherit
+ }
+}
+span.visited {
+ color:#941352
+}
+span.visited-maroon {
+ color:#85144b
+}

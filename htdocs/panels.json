@@ -1,0 +1,18 @@
+{
+    "index": {
+        "label": "<i class=\"fas fa-home\"></i>",
+        "schema": "HOME",
+        "source": "index.html"
+    },
+    "general": {
+        "id": "general",
+        "label": "General",
+        "schema": "LIST",
+        "source": "articles_general.json"
+    },
+    "about": {
+        "label": "About the Author",
+        "schema": "HREF",
+        "source": "https://curioustorvald.com/"
+    }
+}
