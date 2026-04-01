@@ -13,6 +13,7 @@ Query parameters:
 """
 
 import os
+import re
 import sys
 import traceback
 import urllib.parse
@@ -23,6 +24,30 @@ import blog_common
 from blog_config import BLOG_ROOT
 
 BLOG_ROOT = Path(BLOG_ROOT)
+
+_LINK_CSS_RE = re.compile(
+    r'<link\b[^>]*\brel=["\']stylesheet["\'][^>]*/?>',
+    re.IGNORECASE,
+)
+_HREF_RE = re.compile(r'\bhref=["\']([^"\']+)["\']', re.IGNORECASE)
+
+
+def _inline_css(html_str, blog_root):
+    """Replace local <link rel="stylesheet"> tags with inlined <style> blocks."""
+    def _replace(m):
+        tag = m.group(0)
+        href_m = _HREF_RE.search(tag)
+        if not href_m:
+            return tag
+        href = href_m.group(1)
+        if href.startswith(('http://', 'https://', '//')):
+            return tag
+        css_path = Path(blog_root) / href
+        if not css_path.exists():
+            return tag
+        return f'<style>\n{css_path.read_text(encoding="utf-8")}\n</style>'
+
+    return _LINK_CSS_RE.sub(_replace, html_str)
 
 
 def _find_article_info(config, stem):
@@ -100,25 +125,27 @@ def main():
         article_param = params.get('article')
         page_param    = params.get('page')
 
+        blog_root = config['blog_root']
+
         if article_param:
             info = _find_article_info(config, article_param)
             if info is None:
                 print(f'<p>Article not found: <code>{article_param}</code></p>')
                 return
-            print(blog_common.render_article_page(
+            print(_inline_css(blog_common.render_article_page(
                 config,
                 info['article_f'],
                 info['cat_id'],
                 info['title'],
                 lang=info.get('lang', 'en'),
                 alt_f=info.get('alt_f'),
-            ))
+            ), blog_root))
 
         elif page_param == 'index':
-            print(blog_common.render_index_page(config))
+            print(_inline_css(blog_common.render_index_page(config), blog_root))
 
         elif page_param and page_param.startswith('cat_'):
-            print(blog_common.render_category_page(config, page_param[4:]))
+            print(_inline_css(blog_common.render_category_page(config, page_param[4:]), blog_root))
 
         else:
             print(_preview_menu(config))
